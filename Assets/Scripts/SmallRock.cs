@@ -4,8 +4,15 @@ using UnityEngine;
 
 public class SmallRock : MonoBehaviour
 {
-	public float speed = 3.0f;
+	public GameObject smallRock;
+	public float speed = 6.0f;
 	public int score = 5;
+	public float rotateSpeed = 45f;
+
+	private void OnEnable()
+	{
+		rotateSpeed = Random.Range(-45f, 45f);
+	}
 
 	private void Start()
 	{
@@ -18,6 +25,7 @@ public class SmallRock : MonoBehaviour
 	void Update()
 	{
 		transform.position += transform.right * speed * Time.deltaTime;
+		smallRock.transform.Rotate(Vector3.forward * rotateSpeed * Time.deltaTime);
 		GameManager.instance.WarpAroundWorld(transform);
 	}
 

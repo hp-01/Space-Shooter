@@ -14,7 +14,6 @@ public class RockManager : MonoBehaviour
 	public List<GameObject> points;
 	private List<GameObject> rocks;
 
-
 	private void Awake()
 	{
 		instance = this;
